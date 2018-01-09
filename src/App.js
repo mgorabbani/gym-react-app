@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Route } from "react-router-dom";
+
 import Loader from "react-loader";
 import { IntlProvider } from "react-intl";
 import HomePage from "./components/pages/HomePage";
@@ -18,7 +18,21 @@ import CharactersPage from "./components/pages/CharactersPage";
 import NewCharacterPage from "./components/pages/NewCharacterPage";
 import { fetchCurrentUser } from "./actions/users";
 import messages from "./messages";
-
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect
+} from 'react-router-dom'
+import {
+  Navbar,
+  Nav,
+  NavbarBrand,
+  NavbarToggler,
+  Collapse,
+  NavItem,
+  NavLink,
+} from "reactstrap";
 class App extends React.Component {
   componentDidMount() {
     if (this.props.isAuthenticated) this.props.fetchCurrentUser();
@@ -31,6 +45,7 @@ class App extends React.Component {
         <div>
           <Loader loaded={loaded}>
             {isAuthenticated && <TopNavigation />}
+
             <Route location={location} path="/" exact component={HomePage} />
             <Route
               location={location}
@@ -67,7 +82,20 @@ class App extends React.Component {
               path="/dashboard"
               exact
               component={DashboardPage}
-            />
+            >
+              <UserRoute
+                location={location}
+                path="/dashboard/1"
+                exact
+                component={Hi}
+              />
+              <UserRoute
+                location={location}
+                path="/2"
+                exact
+                component={Hi}
+              />
+            </UserRoute>
             <UserRoute
               location={location}
               path="/characters"
@@ -80,13 +108,14 @@ class App extends React.Component {
               exact
               component={NewCharacterPage}
             />
+
           </Loader>
         </div>
       </IntlProvider>
     );
   }
 }
-
+const Hi = () => (<p>Hi!</p>);
 App.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired
