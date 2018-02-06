@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
+import { Link } from 'react-router-dom'
+
 import { fetchAllMembers, fetchSearchResult } from '../../actions/members'
 class FindMemberPage extends Component {
     constructor(props) {
@@ -20,7 +22,7 @@ class FindMemberPage extends Component {
             count++
             let Joiningdate = new Date(d.joiningdate);
             let expiringdate = new Date(d.expiringdate);
-            console.log(Joiningdate.toDateString(), "daaat")
+            let details = d.phone
             return < tr key={count}>
                 <th scope="row" > {count} </th >
                 <td>{d.name}</td>
@@ -28,7 +30,7 @@ class FindMemberPage extends Component {
                 <td>{d.package}</td>
                 <td>{Joiningdate.toDateString()}</td>
                 <td>{expiringdate.toDateString()}</td>
-                <td><a href="find-member/edit">Details</a> </td>
+                <td><Link to="/dashboard/members/">Details</Link> </td>
             </tr >
         });
         return listItems;
@@ -49,8 +51,8 @@ class FindMemberPage extends Component {
     render() {
         return (
             <div>
-                <table class="table table-hover">
-                    <thead class="thead-dark">
+                <table className="table table-hover">
+                    <thead className="thead-dark">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>

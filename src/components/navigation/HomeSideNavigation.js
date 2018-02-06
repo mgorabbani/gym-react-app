@@ -57,7 +57,7 @@ class HomeSideNavigation extends React.Component {
             <NavLink
               tag={RouterNavLink}
               activeClassName="active"
-              to="/dashboard/find-member"
+              to="/dashboard/members"
             >
               <FormattedMessage
                 id="nav.characters"

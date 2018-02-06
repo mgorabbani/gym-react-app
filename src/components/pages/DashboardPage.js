@@ -25,7 +25,7 @@ class DashboardPage extends React.Component {
         </aside>
         <div className="col-md-10">
           <Route path="/dashboard/add-member" component={AddMemberPage} />
-          <Route path="/dashboard/find-member" component={FindMemberPage} />
+          <Route path="/dashboard/members" component={FindMemberPage} />
         </div>
 
       </div>
