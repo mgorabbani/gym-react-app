@@ -13,3 +13,6 @@ export const addMember = data => dispatch =>
 
 export const fetchAllMembers = () => dispatch =>
     api.user.fetchAllMembers().then(members => dispatch(memberFetched(members)));
+
+export const fetchSearchResult = value => dispatch =>
+    api.user.fetchSearchResult(value).then(members => dispatch(memberFetched(members)));

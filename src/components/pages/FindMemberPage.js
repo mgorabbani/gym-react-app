@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
-import { fetchAllMembers } from '../../actions/members'
+import { fetchAllMembers, fetchSearchResult } from '../../actions/members'
 class FindMemberPage extends Component {
     constructor(props) {
         super(props);
@@ -41,6 +41,8 @@ class FindMemberPage extends Component {
         let { value } = e.target;
         if (value.length > 2) {
             this.props.fetchSearchResult(value);
+        } else if (value.length == 0) {
+            this.props.fetchAllMembers();
         }
 
     }
@@ -76,4 +78,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps, { fetchAllMembers })(FindMemberPage);
+export default connect(mapStateToProps, { fetchAllMembers, fetchSearchResult })(FindMemberPage);
