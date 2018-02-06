@@ -33,7 +33,7 @@ class TopNavigation extends React.Component {
     return (
       <Navbar light expand="sm" color="faded">
         <NavbarBrand tag={RouterNavLink} activeClassName="active" to="/">
-          ALHub
+          GYM Management System
         </NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>

@@ -80,7 +80,6 @@ class App extends React.Component {
             <UserRoute
               location={location}
               path="/dashboard"
-              exact
               component={DashboardPage}
             >
               <UserRoute

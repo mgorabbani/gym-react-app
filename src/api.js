@@ -6,6 +6,13 @@ export default {
       axios.post("/api/auth", { credentials }).then(res => res.data.user),
     signup: user =>
       axios.post("/api/users", { user }).then(res => res.data.user),
+    addMember: user =>
+      axios.post("/api/members", { user }).then(res => res.data.user),
+    fetchAllMembers: () =>
+      axios.get("/api/members").then((res) => {
+        return res.data
+      }),
+
     confirm: token =>
       axios
         .post("/api/auth/confirmation", { token })

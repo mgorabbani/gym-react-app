@@ -4,7 +4,7 @@ import { userLoggedIn } from "./auth";
 
 export const userFetched = user => ({
   type: USER_FETCHED,
-  user
+  user,
 });
 
 export const signup = data => dispatch =>
@@ -12,6 +12,7 @@ export const signup = data => dispatch =>
     localStorage.bookwormJWT = user.token;
     dispatch(userLoggedIn(user));
   });
+
 
 export const fetchCurrentUser = () => dispatch =>
   api.user.fetchCurrentUser().then(user => dispatch(userFetched(user)));
