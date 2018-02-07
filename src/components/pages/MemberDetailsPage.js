@@ -1,51 +1,38 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { fetchSingleMemberData } from '../../actions/members'
 
-import {
-    BrowserRouter as Router,
-    Route,
-    Link
-} from 'react-router-dom'
-
-const PEEPS = [
-    { id: 0, name: 'Michelle', friends: [1, 2, 3] },
-    { id: 1, name: 'Sean', friends: [0, 3] },
-    { id: 2, name: 'Kim', friends: [0, 1, 3], },
-    { id: 3, name: 'David', friends: [1, 2] }
-]
-
-const find = (id) => PEEPS.find(p => p.id == id)
-
-
-const Person = ({ match }) => {
-    const person = find(match.params.id)
-
-    return (
-        <div>
-            <h3>{person.name}’s Friends</h3>
-            <ul>
-                {person.friends.map(id => (
-                    <li key={id}>
-                        <Link to={`${match.url}/${id}`}>
-                            {find(id).name}
-                        </Link>
-                    </li>
-                ))}
-            </ul>
-            <Route path={`${match.url}/:id`} component={Person} />
-        </div>
-    )
-}
-
-class MemberDetailsPage extends Component {
-    state = {
-        details: 1
+export class MemberDetailsPage extends Component {
+    componentDidMount() {
+        this.props.fetchSingleMemberData(this.props.match.params.id)
     }
     render() {
+        const m = this.props.members;
         return (
-            <Router>
-                <Person match={{ params: { id: 0 }, url: '/dashboard/members' }} />
-            </Router>
+            <div>
+
+                <img src="http://lorempixel.com/200/250/people/" alt="" />
+                <h1>{m.name}</h1>
+                <h2>{m.phone}</h2>
+                <h2>{m.email}</h2>
+                <h2>{m.package}</h2>
+                <h2>{m.trainer}</h2>
+                <h2>{m.dob}</h2>
+                <h2>{m.expiringdate}</h2>
+                <h2>{m.joiningdate}</h2>
+            </div>
         )
     }
 }
-export default MemberDetailsPage
+
+const mapStateToProps = (state) => {
+    console.log(state, "details")
+    return { members: state.members }
+}
+
+const mapDispatchToProps = {
+    fetchSingleMemberData
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MemberDetailsPage)

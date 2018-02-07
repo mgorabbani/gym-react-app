@@ -30,7 +30,7 @@ class FindMemberPage extends Component {
                 <td>{d.package}</td>
                 <td>{Joiningdate.toDateString()}</td>
                 <td>{expiringdate.toDateString()}</td>
-                <td><Link to="/dashboard/members/">Details</Link> </td>
+                <td><Link to={`/dashboard/members/${d.phone}`} params={{ testvalue: "hello" }}>Details</Link> </td>
             </tr >
         });
         return listItems;

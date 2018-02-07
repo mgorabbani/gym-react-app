@@ -16,6 +16,7 @@ class AddMemberForm extends React.Component {
       trainer: "1",
       joiningdate: "2018-2-2",
       expiringdate: "2018-2-2",
+      gender: "female"
     },
     errors: {}
   };
@@ -157,20 +158,20 @@ class AddMemberForm extends React.Component {
           <div className="form-check col-md-6">
             <label htmlFor="address">Package</label>
             <select name="package" className="form-control" onChange={this.onChange} value={data.package} required>
-              <option value="">Select Package</option>
-              <option value="0">1 Month Package</option>
-              <option value="1">3 Month Package</option>
-              <option value="2">6 Month Package</option>
-              <option value="3">1 year Package</option>
+              <option value="0">Select Package</option>
+              <option value="1 Month Package">1 Month Package</option>
+              <option value="3 Month Package">3 Month Package</option>
+              <option value="6 Month Package">6 Month Package</option>
+              <option value="1 year Package">1 year Package</option>
             </select>
           </div>
           <div className="form-check col-md-6">
             <label htmlFor="address">Trainer</label>
             <select name="trainer" required className="form-control" onChange={this.onChange} value={data.trainer}>
               <option value="">Select Trainer</option>
-              <option value="1">Proval Hossain</option>
-              <option value="2">Rubel Hossain</option>
-              <option value="3">Istiak Ahmed</option>
+              <option value="Proval Hossain">Proval Hossain</option>
+              <option value="Rubel Hossain">Rubel Hossain</option>
+              <option value="Istiak Ahmed">Istiak Ahmed</option>
             </select>
           </div>
           <div className="form-group col-md-6">

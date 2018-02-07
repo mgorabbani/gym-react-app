@@ -13,7 +13,7 @@ import {
 } from 'react-router-dom'
 import HomeSideNavigation from '../navigation/HomeSideNavigation'
 import AddMemberPage from '../pages/AddMemberPage'
-import FindMemberPage from '../pages/FindMemberPage'
+import MemberListPage from '../pages/MemberListPage'
 class DashboardPage extends React.Component {
   render() {
     const { isConfirmed, location } = this.props;
@@ -25,7 +25,7 @@ class DashboardPage extends React.Component {
         </aside>
         <div className="col-md-10">
           <Route path="/dashboard/add-member" component={AddMemberPage} />
-          <Route path="/dashboard/members" component={FindMemberPage} />
+          <Route path="/dashboard/members" component={MemberListPage} />
         </div>
 
       </div>

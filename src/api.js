@@ -14,6 +14,8 @@ export default {
       }),
     fetchSearchResult: (value) =>
       axios.post("/api/members/search", { value }).then(res => res.data),
+    fetchSingleMemberData: (value) =>
+      axios.post(`/api/members/${value}`).then(res => res.data),
     confirm: token =>
       axios
         .post("/api/auth/confirmation", { token })

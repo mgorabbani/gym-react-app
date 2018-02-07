@@ -3,3 +3,4 @@ export const USER_LOGGED_OUT = "USER_LOGGED_OUT";
 export const USER_FETCHED = "USER_FETCHED";
 export const LOCALE_SET = "LOCALE_SET";
 export const MEMBER_FETCHED = "MEMBER_FETCHED";
+export const ALL_MEMBERS_FETCHED = "ALL_MEMBERS_FETCHED";
