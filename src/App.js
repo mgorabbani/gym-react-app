@@ -46,7 +46,7 @@ class App extends React.Component {
           <Loader loaded={loaded}>
             {isAuthenticated && <TopNavigation />}
 
-            <Route location={location} path="/" exact component={HomePage} />
+            <GuestRoute location={location} path="/" exact component={HomePage} />
             <Route
               location={location}
               path="/confirmation/:token"
@@ -81,20 +81,7 @@ class App extends React.Component {
               location={location}
               path="/dashboard"
               component={DashboardPage}
-            >
-              <UserRoute
-                location={location}
-                path="/dashboard/1"
-                exact
-                component={Hi}
-              />
-              <UserRoute
-                location={location}
-                path="/2"
-                exact
-                component={Hi}
-              />
-            </UserRoute>
+            />
             <UserRoute
               location={location}
               path="/characters"
@@ -114,7 +101,6 @@ class App extends React.Component {
     );
   }
 }
-const Hi = () => (<p>Hi!</p>);
 App.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired

@@ -31,13 +31,15 @@ class TopNavigation extends React.Component {
     const { user, logout } = this.props;
 
     return (
-      <Navbar light expand="sm" color="faded">
+      <Navbar dark expand="sm" color="faded" style={{
+        backgroundColor: '#01af9f'
+      }}>
         <NavbarBrand tag={RouterNavLink} activeClassName="active" to="/">
-          GYM Management System
+          <img src={require('../../assets/gym-management-logo.png')} alt="" />
         </NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
-          <Nav navbar>
+          <Nav navbar className="ml-auto">
             <NavItem>
               <NavLink
                 tag={RouterNavLink}
@@ -50,27 +52,21 @@ class TopNavigation extends React.Component {
                 />
               </NavLink>
             </NavItem>
+
             <NavItem>
-              <NavLink
-                tag={RouterNavLink}
-                activeClassName="active"
-                to="/characters"
-              >
-                <FormattedMessage
-                  id="nav.characters"
-                  defaultMessage="My Characters"
-                />
-              </NavLink>
+              <a role="button" style={{ display: 'inline-block', cursor: 'pointer' }} className="nav-link" onClick={() => this.props.setLocale("en")}>
+                <img width="25" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAhFBMVEUAAADvjYbwfHSKYpnt7/GKYpp4hcrr7/HwkYnvq6WAd7Xvx8aHaqShaJDLsMOic5vykYzyj4r0Qzbs7/E/UbXvmJPybmTuxMJ7h8zBp77///+HktFvfMfb3/FLW7nz9Pu3vuNjccNsTZSrs99qeMSTndXn6fbP1O3O0+xrXKbNrr9rbbgEiDpcAAAAEnRSTlMAcMDgfuDAgbCgzI7Y2J6UPDtbvABhAAAAz0lEQVRIx+2TSxKCMBBEBQEB/zBgTEIUERS9//1UilUkMRW0KKy8Re/epqdnYjD8L+upiKUtwWpkF0ScIgn2V2QCwAelSnKYZ4cjcFFWVQn3nYR5I3uQYQRcMIwZnGMJTisjRIELRoiiLEBFdqGzMVYqtn3BV8YFfdamJhe44KKpTUFevI5K3oKgvE4l+P0L8wQLU5NFC1ORQ+HC6kRC0LYtWFivl/y5vNqLuH1+yVmshTOwbEda2APLfqqFP+ZTBYkWwZjvvLG02E4MBkMXD5MAkJrGRHOLAAAAAElFTkSuQmCC" />
+              </a>
+              <a role="button" className="nav-link" style={{ display: 'inline-block', cursor: 'pointer' }} onClick={() => this.props.setLocale("bn")}>
+                <img width="25" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGnSURBVGhD7ZdLTsMwFEUjIdgCg85adkCH7QxoB+QjaGFA58BS+CyDz5IAAZtAzE1upUiV301iJ5HqoHekI1XNjf2a2slLpCiKoij/g9uV6ZUCFgpZAQuFrICFQlbAQiErYCEH925W5iJZmNfD2LyP5uZ3cLwWn1/Gp+tjyLBzWylgoRoXeXFfw7kx+0eVfo5m5jzPsjEaK2ChEnfyK/owTWmxVeIcnMvG9FbAQiU+ThJaoIv3k5SO6a2AhYhYNqwwH7O0g+UkYCFLbMbv4YwW5SP2ze71FZ3DWQELWV7G7a9+4bLtphawkCVui6yYJj6NYzqHswIWsvw4qL9luoqx2BzOCljI8mdwQotpIsZiczgrYCHL3v+ALpcQWg02h7MCFrJ87vsmRmPGimkiHohsDmcFLGSJB5lL81YnmrutPMjgWQf/QpIt6dheClioxCadaOHdNKNjeitgoRLREqOrZAVWieKDaKcL0VViPbNiN0Um7mLZbCpgIQexsdGY4bb4lhdavFLiM77DsWBfKbeqgIVCVsBCIStgoZAVsFDIKoqiKEr/iaI/Ix7Q+EK+im4AAAAASUVORK5CYII=" />
+              </a>
+            </NavItem>
+            <NavItem style={{ color: '#fff', marginTop: '8px' }}>
+              Howdy, {user.username}!
             </NavItem>
           </Nav>
-          <Nav className="ml-auto" navbar>
-            <a role="button" onClick={() => this.props.setLocale("en")}>
-              EN
-            </a>{" "}
-            |
-            <a role="button" onClick={() => this.props.setLocale("ru")}>
-              RU
-            </a>
+          <Nav navbar>
+
             <UncontrolledDropdown nav>
               <DropdownToggle nav>
                 <img
@@ -87,7 +83,7 @@ class TopNavigation extends React.Component {
             </UncontrolledDropdown>
           </Nav>
         </Collapse>
-      </Navbar>
+      </ Navbar >
     );
   }
 }

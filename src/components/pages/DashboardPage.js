@@ -19,13 +19,15 @@ class DashboardPage extends React.Component {
     const { isConfirmed, location } = this.props;
     console.log(location, 'see')
     return (
-      <div className="row">
-        <aside className="col-md-2">
-          <HomeSideNavigation />
-        </aside>
-        <div className="col-md-10">
-          <Route path="/dashboard/add-member" component={AddMemberPage} />
-          <Route path="/dashboard/members" component={MemberListPage} />
+      <div className="container-fluid">
+        <div className="row">
+          <aside className="col-md-2" style={{ background: "#009688", }}>
+            <HomeSideNavigation />
+          </aside>
+          <div className="col-md-10">
+            <Route path="/dashboard/add-member" component={AddMemberPage} />
+            <Route path="/dashboard/members" component={MemberListPage} />
+          </div>
         </div>
 
       </div>

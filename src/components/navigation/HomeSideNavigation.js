@@ -17,16 +17,13 @@ import { connect } from "react-redux";
 import { NavLink as RouterNavLink } from "react-router-dom";
 import gravatarUrl from "gravatar-url";
 import { FormattedMessage } from "react-intl";
-import * as actions from "../../actions/auth";
-import { setLocale } from "../../actions/locale";
-
 class HomeSideNavigation extends React.Component {
 
   render() {
     const { user, logout } = this.props;
 
     return (
-      <Navbar light expand="sm" color="faded">
+      <Navbar dark expand="sm" color="faded">
 
         <Nav vertical navbar>
           <NavItem>
@@ -47,10 +44,7 @@ class HomeSideNavigation extends React.Component {
               activeClassName="active"
               to="/dashboard/add-member"
             >
-              <FormattedMessage
-                id="nav.characters"
-                defaultMessage="Add Member"
-              />
+              <FormattedMessage id="nav.addMember" />
             </NavLink>
           </NavItem>
           <NavItem>

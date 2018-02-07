@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import { addLocaleData } from "react-intl";
 import en from "react-intl/locale-data/en";
-import ru from "react-intl/locale-data/ru";
+import bn from "react-intl/locale-data/bn";
 import { composeWithDevTools } from "redux-devtools-extension";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
@@ -17,7 +17,7 @@ import { localeSet } from "./actions/locale";
 import setAuthorizationHeader from "./utils/setAuthorizationHeader";
 
 addLocaleData(en);
-addLocaleData(ru);
+addLocaleData(bn);
 
 const store = createStore(
   rootReducer,

@@ -19,6 +19,6 @@ export const fetchAllMembers = () => dispatch =>
     api.user.fetchAllMembers().then(members => dispatch(memberFetched(members)));
 
 export const fetchSearchResult = value => dispatch =>
-    api.user.fetchSearchResult(value).then(members => dispatch(AllMembersFetched(members)));
+    api.user.fetchSearchResult(value).then(members => dispatch(memberFetched(members)));
 export const fetchSingleMemberData = value => dispatch =>
     api.user.fetchSingleMemberData(value).then(member => dispatch(memberFetched(member)))

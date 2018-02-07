@@ -10,16 +10,10 @@ class AddMemberPage extends React.Component {
 
     render() {
         return (
-            <div className="container">
-                <div className="row">
-                    <div className="col col-xs-12 col-sm-12 col-lg-12">
-                        <div className="card">
-                            <h2 className="card-header">Add New Member</h2>
-                            <div className="card-body">
-                                <AddMemberForm submit={this.submit} />
-                            </div>
-                        </div>
-                    </div>
+            <div className="row card">
+                <h2 className="card-header">Add New Member</h2>
+                <div className="card-body">
+                    <AddMemberForm submit={this.submit} />
                 </div>
             </div>
         );

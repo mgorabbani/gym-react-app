@@ -1,8 +1,10 @@
 export default {
   en: {
-    "nav.dashboard": "Dashboard"
+    "nav.dashboard": "Dashboard",
+    "nav.addMember": "Add Member"
   },
-  ru: {
-    "nav.dashboard": "Панель Управления"
+  bn: {
+    "nav.dashboard": "ড্যাশবোর্ড",
+    "nav.addMember": "নতুন সদস্য"
   }
 };
