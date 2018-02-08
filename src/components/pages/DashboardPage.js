@@ -12,8 +12,10 @@ import {
   Switch
 } from 'react-router-dom'
 import HomeSideNavigation from '../navigation/HomeSideNavigation'
-import AddMemberPage from '../pages/AddMemberPage'
-import MemberListPage from '../pages/MemberListPage'
+import AddMemberPage from './AddMemberPage'
+import MemberListPage from './MemberListPage'
+import SettingPage from './SettingPage'
+import MainDashboardPage from './MainDashboardPage'
 class DashboardPage extends React.Component {
   render() {
     const { isConfirmed, location } = this.props;
@@ -25,9 +27,16 @@ class DashboardPage extends React.Component {
             <HomeSideNavigation />
           </aside>
           <div className="col-md-10">
-            <Route path="/dashboard/add-member" component={AddMemberPage} />
-            <Route path="/dashboard/members" component={MemberListPage} />
+            <Switch>
+              <Route exact path="/dashboard/" component={MainDashboardPage} />
+              <Route path="/dashboard/add-member" component={AddMemberPage} />
+              <Route path="/dashboard/members" component={MemberListPage} />
+              <Route path="/dashboard/setting" component={SettingPage} />
+            </Switch>
           </div>
+          <footer style={{ bottom: 0, margin: '20px auto' }}>
+            <p>&copy; 2018, All rights are reserved. Made with ❤️ by Golam Rabani.🚀🚀🚀</p>
+          </footer>
         </div>
 
       </div>

@@ -76,7 +76,14 @@ class TopNavigation extends React.Component {
                 />
               </DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem>My Account</DropdownItem>
+                <DropdownItem>
+                  <NavLink style={{ color: "#000" }}
+                    tag={RouterNavLink}
+                    activeClassName="active"
+                    to="/dashboard/setting"
+                  >My Account
+                  </NavLink>
+                </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem onClick={() => logout()}>Logout</DropdownItem>
               </DropdownMenu>
