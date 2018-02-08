@@ -15,7 +15,7 @@ import {
 } from "reactstrap";
 import { connect } from "react-redux";
 import { NavLink as RouterNavLink } from "react-router-dom";
-import gravatarUrl from "gravatar-url";
+
 import { FormattedMessage } from "react-intl";
 import * as actions from "../../actions/auth";
 import { setLocale } from "../../actions/locale";
@@ -69,11 +69,7 @@ class TopNavigation extends React.Component {
 
             <UncontrolledDropdown nav>
               <DropdownToggle nav>
-                <img
-                  className="img-fluid rounded-circle"
-                  src={gravatarUrl(user.email, { size: 40 })}
-                  alt="Gravatar"
-                />
+                drop
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>

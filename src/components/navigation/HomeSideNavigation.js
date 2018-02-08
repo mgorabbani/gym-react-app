@@ -15,7 +15,7 @@ import {
 } from "reactstrap";
 import { connect } from "react-redux";
 import { NavLink as RouterNavLink } from "react-router-dom";
-import gravatarUrl from "gravatar-url";
+
 import { FormattedMessage } from "react-intl";
 class HomeSideNavigation extends React.Component {
 
