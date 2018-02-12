@@ -18,6 +18,7 @@ export class MemberDetailsPage extends Component {
                 <content className="col-sm-9">
                     <h2>{m.phone}</h2>
                     <h2>{m.email}</h2>
+                    <h2>{m.gender}</h2>
                     <h2>{m.package}</h2>
                     <h2>{m.trainer}</h2>
                     <h2>{m.dob}</h2>

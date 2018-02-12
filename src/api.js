@@ -1,30 +1,39 @@
 import axios from "axios";
 
+const axi = axios;
 export default {
   user: {
     login: credentials =>
-      axios.post("/api/auth", { credentials }).then(res => res.data.user),
+      axi.post("/api/auth", { credentials }).then(res => res.data.user),
     signup: user =>
-      axios.post("/api/users", { user }).then(res => res.data.user),
+      axi.post("/api/users", { user }).then(res => res.data.user),
     addMember: user =>
-      axios.post("/api/members", { user }).then(res => res.data.user),
+      axi.post("/api/members", { user }).then(res => res.data.user),
     fetchAllMembers: () =>
-      axios.get("/api/members").then((res) => {
+      axi.get("/api/members").then((res) => {
         return res.data
       }),
     fetchSearchResult: (value) =>
-      axios.post("/api/members/search", { value }).then(res => res.data),
+      axi.post("/api/members/search", { value }).then(res => res.data),
     fetchSingleMemberData: (value) =>
-      axios.post(`/api/members/${value}`).then(res => res.data),
+      axi.post(`/api/members/${value}`).then(res => res.data),
     confirm: token =>
-      axios
+      axi
         .post("/api/auth/confirmation", { token })
         .then(res => res.data.user),
     resetPasswordRequest: email =>
-      axios.post("/api/auth/reset_password_request", { email }),
-    validateToken: token => axios.post("/api/auth/validate_token", { token }),
-    resetPassword: data => axios.post("/api/auth/reset_password", { data }),
+      axi.post("/api/auth/reset_password_request", { email }),
+    validateToken: token => axi.post("/api/auth/validate_token", { token }),
+    resetPassword: data => axi.post("/api/auth/reset_password", { data }),
     fetchCurrentUser: () =>
-      axios.get("/api/users/current_user").then(res => res.data.user)
+      axi.get("/api/users/current_user").then(res => res.data.user),
+    addPackage: (data) =>
+      axi.post("/api/users/add_package", { data }).then(res => res.data.user),
+    addTrainer: (data) =>
+      axi.post("/api/users/add_trainer", { data }).then(res => res.data.user),
+    deletePackage: (data) =>
+      axi.post("/api/users/delete_package", { data }).then(res => res.data.user),
+    deleteTrainer: (data) =>
+      axi.post("/api/users/delete_trainer", { data }).then(res => res.data.user),
   }
 };

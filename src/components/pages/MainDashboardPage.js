@@ -11,7 +11,7 @@ export default class MainDashboardPage extends Component {
         gridTemplateAreas: '"time time" "counter counter" "soon expired"'
       }}>
         <section style={{ background: "#f9f9f9", padding: '5px', justifyItems: 'center', gridArea: 'time' }} >
-          <h4>{new Date().toString()}</h4>
+          <h4>{new Date().toDateString()} {new Date().toLocaleTimeString()}</h4>
         </section>
         <section style={{ gridArea: 'counter', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', justifyItems: 'center' }}>
           <Dashbox data={{ text: 'Total Members', totalmembers: 120, subtext: 'So far in all our branches', icon: 'group.png' }} />

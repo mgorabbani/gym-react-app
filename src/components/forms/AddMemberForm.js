@@ -15,7 +15,6 @@ class AddMemberForm extends React.Component {
       package: "1",
       trainer: "1",
       joiningdate: "2018-2-2",
-      expiringdate: "2018-2-2",
       gender: "female"
     },
     errors: {}
@@ -50,11 +49,11 @@ class AddMemberForm extends React.Component {
     if (!data.phone) errors.phone = "Can't be blank";
     if (!data.dob) errors.dob = "Can't be blank";
     if (!data.address) errors.address = "Can't be blank";
+    if (!data.gender) errors.gender = "Can't be blank";
     if (!data.extranote) errors.extranote = "Can't be blank";
     if (!data.package) errors.package = "Please choose a package";
     if (!data.trainer) errors.trainer = "Please assign a trainer";
     if (!data.joiningdate) errors.joiningdate = "Please enter Joining date";
-    if (!data.expiringdate) errors.expiringdate = "Please enter expiring date";
 
 
 
@@ -159,10 +158,10 @@ class AddMemberForm extends React.Component {
             <label htmlFor="address">Package</label>
             <select name="package" className="form-control" onChange={this.onChange} value={data.package} required>
               <option value="0">Select Package</option>
-              <option value="1 Month Package">1 Month Package</option>
-              <option value="3 Month Package">3 Month Package</option>
-              <option value="6 Month Package">6 Month Package</option>
-              <option value="1 year Package">1 year Package</option>
+              <option value="1">1 Month Package</option>
+              <option value="3">3 Month Package</option>
+              <option value="6">6 Month Package</option>
+              <option value="12">1 year Package</option>
             </select>
           </div>
           <div className="form-check col-md-6">
@@ -187,20 +186,6 @@ class AddMemberForm extends React.Component {
               }
             />
             <div className="invalid-feedback">{errors.joiningdate}</div>
-          </div>
-          <div className="form-group col-md-6">
-            <label htmlFor="dob">Expiring Date</label>
-            <input
-              type="date"
-              id="expiringdate"
-              name="expiringdate"
-              value={data.expiringdate}
-              onChange={this.onChange}
-              className={
-                errors.expiringdate ? "form-control is-invalid" : "form-control"
-              }
-            />
-            <div className="invalid-feedback">{errors.expiringdate}</div>
           </div>
 
         </div>

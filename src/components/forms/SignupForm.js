@@ -38,7 +38,7 @@ class SignupForm extends React.Component {
     if (!isEmail(data.email)) errors.email = "Invalid email";
     if (!data.password) errors.password = "Can't be blank";
     if (!data.username) errors.username = "Can't be blank";
-
+    if (!data.gym_name) errors.gym_name = "Can't be blank";
     return errors;
   };
 
@@ -47,6 +47,20 @@ class SignupForm extends React.Component {
 
     return (
       <form onSubmit={this.onSubmit}>
+        <div className="form-group">
+          <label htmlFor="gym_name">Gym Name</label>
+          <input
+            type="gym_name"
+            id="gym_name"
+            name="gym_name"
+            value={data.gym_name}
+            onChange={this.onChange}
+            className={
+              errors.gym_name ? "form-control is-invalid" : "form-control"
+            }
+          />
+          <div className="invalid-feedback">{errors.gym_name}</div>
+        </div>
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input

@@ -36,6 +36,7 @@ import {
 class App extends React.Component {
   componentDidMount() {
     if (this.props.isAuthenticated) this.props.fetchCurrentUser();
+
   }
 
   render() {

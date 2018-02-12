@@ -16,3 +16,13 @@ export const signup = data => dispatch =>
 
 export const fetchCurrentUser = () => dispatch =>
   api.user.fetchCurrentUser().then(user => dispatch(userFetched(user)));
+
+export const addPackage = (data) => dispatch =>
+  api.user.addPackage(data).then(() => dispatch(fetchCurrentUser()));
+
+export const addTrainer = (data) => dispatch =>
+  api.user.addTrainer(data).then(user => dispatch(userFetched(user)));
+export const deletePackage = (data) => dispatch =>
+  api.user.deletePackage(data).then(user => dispatch(userFetched(user)));
+export const deleteTrainer = (data) => dispatch =>
+  api.user.deleteTrainer(data).then(user => dispatch(userFetched(user)));

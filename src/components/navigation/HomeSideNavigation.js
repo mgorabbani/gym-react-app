@@ -63,6 +63,18 @@ class HomeSideNavigation extends React.Component {
             <NavLink
               tag={RouterNavLink}
               activeClassName="active"
+              to="/dashboard/attendance"
+            >
+              <FormattedMessage
+                id="nav.characters"
+                defaultMessage="Attendance"
+              />
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              tag={RouterNavLink}
+              activeClassName="active"
               to="/dashboard/report"
             >
               <FormattedMessage

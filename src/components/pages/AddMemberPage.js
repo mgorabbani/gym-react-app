@@ -6,7 +6,7 @@ import { addMember } from "../../actions/members";
 
 class AddMemberPage extends React.Component {
     submit = data =>
-        this.props.addMember(data).then(() => this.props.history.push("/dashboard/find-member"));
+        this.props.addMember(data).then(() => this.props.history.push("/dashboard/members"));
 
     render() {
         return (
