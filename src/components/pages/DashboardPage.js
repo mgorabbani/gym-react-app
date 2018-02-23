@@ -23,7 +23,7 @@ class DashboardPage extends React.Component {
     return (
       <div className="container-fluid">
         <div className="row">
-          <aside className="col-md-2" style={{ background: "#009688", }}>
+          <aside className="col-md-2" style={{ background: "#81ADD7", }}>
             <HomeSideNavigation />
           </aside>
           <div className="col-md-10">

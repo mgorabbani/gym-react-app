@@ -32,7 +32,7 @@ class TopNavigation extends React.Component {
 
     return (
       <Navbar dark expand="sm" color="faded" style={{
-        backgroundColor: '#01af9f'
+        backgroundColor: '#3A64A1'
       }}>
         <NavbarBrand tag={RouterNavLink} activeClassName="active" to="/">
           <img src={require('../../assets/gym-management-logo.png')} alt="" />
