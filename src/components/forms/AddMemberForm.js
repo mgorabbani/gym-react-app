@@ -32,6 +32,15 @@ class AddMemberForm extends React.Component {
     console.log('err', errors)
     if (Object.keys(errors).length === 0) {
       this.setState({ loading: true });
+      let trainer = this.props.user.trainer_list.filter(e => {
+        if (this.state.data.trainer == e._id) return e;
+      })
+
+      let pack = this.props.user.package_list.filter(e => {
+        if (this.state.data.package == e._id) return e;
+      })
+      console.log("pack", pack)
+      this.state.data = { ...this.state.data, trainer: trainer[0], package: pack[0] }
       this.props
         .submit(this.state.data)
         .catch(err =>
@@ -158,19 +167,18 @@ class AddMemberForm extends React.Component {
             <label htmlFor="address">Package</label>
             <select name="package" className="form-control" onChange={this.onChange} value={data.package} required>
               <option value="0">Select Package</option>
-              <option value="1">1 Month Package</option>
-              <option value="3">3 Month Package</option>
-              <option value="6">6 Month Package</option>
-              <option value="12">1 year Package</option>
+              {this.props.user.package_list.map((e, key) => {
+                return <option key={key} value={e._id}>{e.package_name}</option>
+              })}
             </select>
           </div>
           <div className="form-check col-md-6">
             <label htmlFor="address">Trainer</label>
             <select name="trainer" required className="form-control" onChange={this.onChange} value={data.trainer}>
               <option value="">Select Trainer</option>
-              <option value="Proval Hossain">Proval Hossain</option>
-              <option value="Rubel Hossain">Rubel Hossain</option>
-              <option value="Istiak Ahmed">Istiak Ahmed</option>
+              {this.props.user.trainer_list.map((e, key) => {
+                return <option key={key} value={e._id}>{e.trainer_name}</option>
+              })}
             </select>
           </div>
           <div className="form-group col-md-6">

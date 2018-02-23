@@ -8,12 +8,13 @@ class SettingPage extends Component {
             success: false,
             data: {
                 package_name: '',
-                pacakge_month: '',
+                package_month: '',
                 trainer_name: '',
                 trainer_number: ''
             }
         }
         this.addTrainer = this.addTrainer.bind(this)
+        this.onChange = this.onChange.bind(this)
     }
     onChange = e =>
         this.setState({
@@ -22,37 +23,51 @@ class SettingPage extends Component {
 
     addPackage(e) {
         e.preventDefault()
-        let packa = {
-            pacakge_month: this.state.data.pacakge_month,
-            package_name: this.state.data.package_name
+        if (this.state.data.package_month !== '' && this.state.data.package_name !== '') {
+            let packa = {
+                package_month: this.state.data.package_month,
+                package_name: this.state.data.package_name
+            }
+            this.props.addPackage(packa);
         }
-        console.log(packa)
-        this.props.addPackage(packa);
     }
     addTrainer(e) {
         e.preventDefault()
-        let trainer
-        this.props.addTrainer(trainer);
-        this.setState({
-            data: { loaded: false }
-        });
+        if (this.state.data.trainer_name !== '' && this.state.data.trainer_number !== '') {
+            let trainer = {
+                trainer_name: this.state.data.trainer_name,
+                trainer_number: this.state.data.trainer_number
+            }
+
+            this.props.addTrainer(trainer);
+        }
+
 
     }
-    deletePackage(data) {
+    deletePackage(id) {
         let con = window.confirm("Are you sure?")
-        if (con) this.props.deletePackage(data)
+        if (con) this.props.deletePackage(id)
     }
-    deleteTrainer(data) {
+    deleteTrainer(id) {
         let con = window.confirm("Are you sure?")
-        if (con) this.props.deleteTrainer(data)
+        if (con) this.props.deleteTrainer(id)
     }
     renderPackage() {
         return this.props.user.package_list.map((e, key) => {
+            console.log(e, 'package')
             return <li key={key}>{e.package_name}
                 <span style={{ fontSize: '1.25em', paddingLeft: '5px', fontWeight: 'bold', color: '#3F51B5' }}>
                     {e.pacakge_month} <small>Month</small>
                 </span>
+                <a href="#" onClick={() => this.deletePackage(e._id)} className="badge badge-danger " >Delete</a>
             </li>
+        })
+    }
+
+    renderTrainer() {
+        return this.props.user.trainer_list.map((e, key) => {
+            console.log(e, 'package')
+            return <li style={{ fontSize: '20px', listStyle: 'square' }}>{e.trainer_name} - <span style={{ fontSize: '.75em' }}>{e.trainer_number}</span> <a href="#" onClick={() => this.deleteTrainer(e._id)} className="badge badge-danger " >Delete</a></li>
         })
     }
     render() {
@@ -77,7 +92,7 @@ class SettingPage extends Component {
                             <label htmlFor="add">New Package Name</label>
                             <input type="text" className="form-control" name="package_name" placeholder="1 Month Package" onChange={this.onChange} value={this.state.package_name} />
                             <label htmlFor="add">Month in Number</label>
-                            <input type="number" className="form-control" name="pacakge_month" placeholder="1" onChange={this.onChange} value={this.state.pacakge_month} /><br />
+                            <input type="number" className="form-control" name="package_month" placeholder="1" onChange={this.onChange} value={this.state.package_month} /><br />
                             <input type="submit" value="save" className="btn btn-primary " />
                         </form>
                         <ul>
@@ -86,7 +101,7 @@ class SettingPage extends Component {
                     </section>
                     <section className="card">
                         <h3 className="card-header">Trainer</h3>
-                        <form className="card-body" onSubmit={this.addTrainer}>
+                        <form onSubmit={(e) => this.addTrainer(e)} className="card-body">
                             <label htmlFor="add">New Trainer Name</label>
                             <input type="text" name="trainer_name" className="form-control" placeholder="John Smith" onChange={this.onChange} value={this.state.trainer_name} />
                             <label htmlFor="add">Number</label>
@@ -94,9 +109,7 @@ class SettingPage extends Component {
                             <input type="submit" value="save" className="btn btn-primary" />
                         </form>
                         <ul>
-                            <li style={{ fontSize: '20px', listStyle: 'square' }}>Proval Hossain - <span style={{ fontSize: '.75em' }}>01829543210</span> <a href="#" onClick={this.delete} className="badge badge-danger " >Delete</a></li>
-                            <li style={{ fontSize: '20px', listStyle: 'square' }}>Proval Hossain - <span style={{ fontSize: '.75em' }}>01829543210</span> <a href="#" onClick={this.delete} className="badge badge-danger " >Delete</a></li>
-                            <li style={{ fontSize: '20px', listStyle: 'square' }}>Proval Hossain - <span style={{ fontSize: '.75em' }}>01829543210</span> <a href="#" onClick={this.delete} className="badge badge-danger " >Delete</a></li>
+                            {this.renderTrainer()}
                         </ul>
                     </section>
                 </div>

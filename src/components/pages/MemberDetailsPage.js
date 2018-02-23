@@ -4,11 +4,34 @@ import { connect } from 'react-redux'
 import { fetchSingleMemberData } from '../../actions/members'
 
 export class MemberDetailsPage extends Component {
+    state = {
+        pack: {
+            package_name: '',
+            package_month: ''
+        },
+        trainer: {
+            trainer_name: '',
+            trainer_number: ''
+        }
+
+    }
+
     componentDidMount() {
-        this.props.fetchSingleMemberData(this.props.match.params.id)
+        let that = this;
+        this.props.fetchSingleMemberData(this.props.match.params.id).then(() => {
+            const m = this.props.members;
+            console.log("ppp", m.package)
+            this.setState({
+                pack: m.package || this.state.pack,
+                trainer: m.trainer || this.state.trainer
+            })
+        })
+
     }
     render() {
         const m = this.props.members;
+        console.log("tra", this.state.trainer)
+
         return (
             <div className="row">
                 <aside className="col-sm-3">
@@ -19,8 +42,9 @@ export class MemberDetailsPage extends Component {
                     <h2>{m.phone}</h2>
                     <h2>{m.email}</h2>
                     <h2>{m.gender}</h2>
-                    <h2>{m.package}</h2>
-                    <h2>{m.trainer}</h2>
+                    <h2>Trainer Name: {this.state.trainer.trainer_name}</h2>
+                    <h2>Trainer Number: {this.state.trainer.trainer_number}</h2>
+                    <h2>Package Name: {this.state.pack.package_name}</h2>
                     <h2>{m.dob}</h2>
                     <h2>{m.expiringdate}</h2>
                     <h2>{m.joiningdate}</h2>

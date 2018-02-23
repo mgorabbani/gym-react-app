@@ -28,12 +28,12 @@ export default {
     fetchCurrentUser: () =>
       axi.get("/api/users/current_user").then(res => res.data.user),
     addPackage: (data) =>
-      axi.post("/api/users/add_package", { data }).then(res => res.data.user),
+      axi.post("/api/users/add_package", { data }),
     addTrainer: (data) =>
-      axi.post("/api/users/add_trainer", { data }).then(res => res.data.user),
-    deletePackage: (data) =>
-      axi.post("/api/users/delete_package", { data }).then(res => res.data.user),
-    deleteTrainer: (data) =>
-      axi.post("/api/users/delete_trainer", { data }).then(res => res.data.user),
+      axi.post("/api/users/add_trainer", { data }),
+    deletePackage: (id) =>
+      axi.post("/api/users/delete_package", { id }),
+    deleteTrainer: (id) =>
+      axi.post("/api/users/delete_trainer", { id }),
   }
 };

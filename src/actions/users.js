@@ -21,8 +21,9 @@ export const addPackage = (data) => dispatch =>
   api.user.addPackage(data).then(() => dispatch(fetchCurrentUser()));
 
 export const addTrainer = (data) => dispatch =>
-  api.user.addTrainer(data).then(user => dispatch(userFetched(user)));
+  api.user.addTrainer(data).then(() => dispatch(fetchCurrentUser()));
+
 export const deletePackage = (data) => dispatch =>
-  api.user.deletePackage(data).then(user => dispatch(userFetched(user)));
+  api.user.deletePackage(data).then(() => dispatch(fetchCurrentUser()));
 export const deleteTrainer = (data) => dispatch =>
-  api.user.deleteTrainer(data).then(user => dispatch(userFetched(user)));
+  api.user.deleteTrainer(data).then(() => dispatch(fetchCurrentUser()));

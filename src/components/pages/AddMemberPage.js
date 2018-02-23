@@ -9,11 +9,12 @@ class AddMemberPage extends React.Component {
         this.props.addMember(data).then(() => this.props.history.push("/dashboard/members"));
 
     render() {
+        console.log("listtt", this.props)
         return (
             <div className="row card">
                 <h2 className="card-header">Add New Member</h2>
                 <div className="card-body">
-                    <AddMemberForm submit={this.submit} />
+                    <AddMemberForm submit={this.submit} user={this.props.user} />
                 </div>
             </div>
         );
@@ -27,4 +28,9 @@ AddMemberPage.propTypes = {
     addMember: PropTypes.func.isRequired
 };
 
-export default connect(null, { addMember })(AddMemberPage);
+function mapStateToProps(state) {
+    return {
+        user: state.user
+    };
+}
+export default connect(mapStateToProps, { addMember })(AddMemberPage);
