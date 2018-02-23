@@ -34,3 +34,34 @@ shared_table
 
 
 attendace
+=== === === === === === === === === === === === === === === === === === === === === === === === ===
+
+
+workout_items: [
+    {
+        _id:234567890,
+        day:1
+        name:'pull-ups'
+        link:'https://youtube.com/sdfsdf'
+    },
+    {
+        _id:234567890,
+        day:2
+        name:'pull-ups'
+        link:'https://youtube.com/sdfsdf'
+    },
+    {
+        _id:234567890,
+        day:3
+        name:'pull-ups'
+        link:'https://youtube.com/sdfsdf'
+    },
+    {
+        _id:234567890,
+        day:0
+        name:'pull-ups'
+        link:'https://youtube.com/sdfsdf'
+    },
+]
+
+filter(where(day==1))
