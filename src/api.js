@@ -35,5 +35,9 @@ export default {
       axi.post("/api/users/delete_package", { id }),
     deleteTrainer: (id) =>
       axi.post("/api/users/delete_trainer", { id }),
+    addExcercise: (data) =>
+      axi.post("/api/members/excercise", { data }),
+    removeExcercise: (data) =>
+      axi.delete("/api/members/excercise", { data })
   }
 };

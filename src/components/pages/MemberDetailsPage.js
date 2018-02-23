@@ -27,11 +27,30 @@ export class MemberDetailsPage extends Component {
         let that = this;
         this.props.fetchSingleMemberData(this.props.match.params.id).then(() => {
             const m = this.props.members;
-            console.log("ppp", m.package)
+            console.clear()
+            console.log("workout_items", m.workout_items)
             this.setState({
                 pack: m.package || this.state.pack,
                 trainer: m.trainer || this.state.trainer
             })
+        })
+    }
+    renderExcersizeList() {
+        let list = this.props.members.workout_items || [];
+        let day1 = list.filter(e => e.day == 1);
+        let day2 = list.filter(e => e.day == 2);
+        let day3 = list.filter(e => e.day == 3);
+        let day4 = list.filter(e => e.day == 4);
+        let day5 = list.filter(e => e.day == 5);
+        let day6 = list.filter(e => e.day == 6);
+        let day0 = list.filter(e => e.day == 0);
+        let alllist = [day0, day1, day2, day3, day4, day5, day6];
+        console.log(alllist)
+
+        return alllist.map((e, k) => {
+            return <div className="col-md-4">
+                <ExcercizeList day={k} data={e} phone={this.props.members.phone} />
+            </div>
         })
 
     }
@@ -61,7 +80,7 @@ export class MemberDetailsPage extends Component {
                         <div className="tab-content">
                             <TabPanel>
                                 <aside className="col-sm-3">
-                                    <img src="http://lorempixel.com/200/250/nature/" alt="" />
+                                    {/* <img src="http://lorempixel.com/200/250/nature/" alt="" /> */}
                                 </aside>
                                 <content className="col-sm-9">
                                     <h2>{m.phone}</h2>
@@ -76,21 +95,7 @@ export class MemberDetailsPage extends Component {
                                 </content>
                             </TabPanel>
                             <TabPanel>
-                                <div className="col-md-4">
-                                    <ExcercizeList day={1} />
-                                </div>
-                                <div className="col-md-4">
-                                    <ExcercizeList day={2} />
-                                </div>
-                                <div className="col-md-4">
-                                    <ExcercizeList day={3} />
-                                </div>
-                                <div className="col-md-4">
-                                    <ExcercizeList day={4} />
-                                </div>
-                                <div className="col-md-4">
-                                    <ExcercizeList />
-                                </div>
+                                {this.renderExcersizeList()}
                             </TabPanel>
                             <TabPanel >
 

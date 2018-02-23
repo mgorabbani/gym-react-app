@@ -1,17 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import api from '../../api';
 import axios from 'axios'
-
-const Title = ({ todoCount }) => {
-    return (
-        <div>
-            <div>
-                <h1>to-do ({todoCount})</h1>
-            </div>
-        </div>
-    );
-}
-
 const TodoForm = ({ addTodo }) => {
     // Input Tracker
     let input;
@@ -32,13 +22,14 @@ const TodoForm = ({ addTodo }) => {
 
 const Todo = ({ todo, remove }) => {
     // Each Todo
-    return (<a href="#" className="list-group-item" onClick={() => { remove(todo.id) }}>{todo.text}</a>);
+    return (<a href="#" className="list-group-item" onClick={() => { remove(todo._id) }}>{todo.name}</a>);
 }
 
 const TodoList = ({ todos, remove }) => {
     // Map through the todos
-    const todoNode = todos.map((todo) => {
-        return (<Todo todo={todo} key={todo.id} remove={remove} />)
+    const todoNode = todos.map((todo, k) => {
+        console.log("toooodo", todo)
+        return (<Todo todo={todo} key={k} remove={remove} />)
     });
     return (<div className="list-group" style={{ marginTop: '30px' }}>{todoNode}</div>);
 }
@@ -54,23 +45,21 @@ class ExecercizeList extends React.Component {
         this.state = {
             data: []
         }
-        this.apiUrl = 'https://57b1924b46b57d1100a3c3f8.mockapi.io/api/todos'
     }
     // Lifecycle method
     componentDidMount() {
         // Make HTTP reques with Axios
-        let data = [{ "id": "1", "text": "eee" }, { "id": "2", "text": "asdf" }, { "id": "3", "text": "ee" }]
         // Set state with result
-        this.setState({ data });
+        this.setState({ data: this.props.data });
     }
     // Add todo handler
     addTodo(val) {
         // Assemble data
-        const todo = { text: val }
+        const todo = { name: val, day: this.props.day, link: '', phone: this.props.phone }
         // Update data
-        axios.post(this.apiUrl, todo)
+        api.user.addExcercise(todo)
             .then((res) => {
-                this.state.data.push(res.data);
+                this.state.data.push(todo);
                 this.setState({ data: this.state.data });
             });
     }
@@ -78,10 +67,10 @@ class ExecercizeList extends React.Component {
     handleRemove(id) {
         // Filter all todos except the one to be removed
         const remainder = this.state.data.filter((todo) => {
-            if (todo.id !== id) return todo;
+            if (todo._id !== id) return todo;
         });
         // Update state with filter
-        axios.delete(this.apiUrl + '/' + id)
+        api.user.removeExcercise({ _id: id, phone: this.props.phone })
             .then((res) => {
                 this.setState({ data: remainder });
             })
