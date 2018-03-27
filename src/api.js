@@ -38,6 +38,10 @@ export default {
     addExcercise: (data) =>
       axi.post("/api/members/excercise", { data }),
     removeExcercise: (data) =>
-      axi.delete("/api/members/excercise", { data })
+      axi.delete("/api/members/excercise", { data }),
+    addChart: (data) =>
+      axi.post("/api/members/chart", { data }),
+    removeChart: (data) =>
+      axi.delete("/api/members/chart", { data })
   }
 };

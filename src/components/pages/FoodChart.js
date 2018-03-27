@@ -37,7 +37,7 @@ const TodoList = ({ todos, remove }) => {
 // Contaner Component
 // Todo Id
 window.id = 0;
-class ExecercizeList extends React.Component {
+class FoodChart extends React.Component {
     constructor(props) {
         // Pass props to parent class
         super(props);
@@ -55,9 +55,9 @@ class ExecercizeList extends React.Component {
     // Add todo handler
     addTodo(val) {
         // Assemble data
-        const todo = { name: val, day: this.props.day, link: '', phone: this.props.phone }
+        const todo = { name: val, time: this.props.time, phone: this.props.phone }
         // Update data
-        api.user.addExcercise(todo)
+        api.user.addChart(todo)
             .then((res) => {
                 this.state.data.push(todo);
                 this.setState({ data: this.state.data });
@@ -70,7 +70,7 @@ class ExecercizeList extends React.Component {
             if (todo._id !== id) return todo;
         });
         // Update state with filter
-        api.user.removeExcercise({ _id: id, phone: this.props.phone })
+        api.user.removeChart({ _id: id, phone: this.props.phone })
             .then((res) => {
                 this.setState({ data: remainder });
             })
@@ -80,7 +80,7 @@ class ExecercizeList extends React.Component {
         // Render JSX
         return (
             <div>
-                {this.props.day ? <h1>Day {this.props.day}</h1> : <h1>Every Day</h1>}
+                <h1>{this.props.time} Chart</h1>
 
                 <TodoForm addTodo={this.addTodo.bind(this)} />
                 <TodoList
@@ -92,5 +92,5 @@ class ExecercizeList extends React.Component {
     }
 }
 
-export default ExecercizeList;
+export default FoodChart;
 

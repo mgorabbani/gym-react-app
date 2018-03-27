@@ -6,6 +6,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import axios from 'axios'
 import ExcercizeList from './ExcercizeList';
+import FoodChart from './FoodChart';
 export class MemberDetailsPage extends Component {
     constructor(props) {
         super(props)
@@ -54,6 +55,28 @@ export class MemberDetailsPage extends Component {
         })
 
     }
+    renderFoodChartList() {
+        let list = this.props.members.food_chart || [];
+        let morning = list.filter(e => e.time == 'Morning');
+        let noon = list.filter(e => e.time == 'Noon');
+        let evening = list.filter(e => e.time == 'Evening');
+        let night = list.filter(e => e.time == 'Night');
+
+        return <div>
+            <div className="col-md-4">
+                <FoodChart data={morning} time={'Morning'} phone={this.props.members.phone} />
+            </div>
+            <div className="col-md-4">
+                <FoodChart data={noon} time={'Noon'} phone={this.props.members.phone} />
+            </div>
+            <div className="col-md-4">
+                <FoodChart data={evening} time={'Evening'} phone={this.props.members.phone} />
+            </div>
+            <div className="col-md-4">
+                <FoodChart data={night} time={'Night'} phone={this.props.members.phone} />
+            </div>
+        </div>
+    }
     render() {
         const m = this.props.members;
         console.log("tra", this.state.trainer)
@@ -62,8 +85,7 @@ export class MemberDetailsPage extends Component {
             <div className="row">
 
 
-
-                <Tabs className="container panel panel-primary">
+                <Tabs className="col-md-12 panel panel-primary">
                     <div className="panel-heading">
                         <h4>{m.name}</h4>
                         <div class="options">
@@ -80,30 +102,29 @@ export class MemberDetailsPage extends Component {
                         <div className="tab-content">
                             <TabPanel>
                                 <aside className="col-sm-3">
-                                    {/* <img src="http://lorempixel.com/200/250/nature/" alt="" /> */}
+                                    <img className="img-responsive" src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?w=180&h=300&dpr=2&auto=compress&cs=tinysrgb" alt="" />
                                 </aside>
                                 <content className="col-sm-9">
-                                    <h2>{m.phone}</h2>
-                                    <h2>{m.email}</h2>
-                                    <h2>{m.gender}</h2>
-                                    <h2>Trainer Name: {this.state.trainer.trainer_name}</h2>
-                                    <h2>Trainer Number: {this.state.trainer.trainer_number}</h2>
-                                    <h2>Package Name: {this.state.pack.package_name}</h2>
-                                    <h2>{m.dob}</h2>
-                                    <h2>{m.expiringdate}</h2>
-                                    <h2>{m.joiningdate}</h2>
+                                    <h2><strong> Mobile No:</strong> {m.phone}</h2>
+                                    {/* <h2>{m.email}</h2> */}
+                                    <h2><strong>Gender: </strong>{m.gender}</h2>
+                                    <h2><strong>Trainer Name: </strong>{this.state.trainer.trainer_name}</h2>
+                                    <h2><strong>Trainer Number:</strong> {this.state.trainer.trainer_number}</h2>
+                                    <h2><strong>Package Name: </strong>{this.state.pack.package_name}</h2>
+                                    <h2><strong>Birthday: </strong>{m.dob}</h2>
+                                    <h2><strong>Package Expire Date: </strong>{m.expiringdate}</h2>
+                                    <h2><strong>Joining Date: </strong>{m.joiningdate}</h2>
                                 </content>
                             </TabPanel>
                             <TabPanel>
                                 {this.renderExcersizeList()}
                             </TabPanel>
                             <TabPanel >
-
+                                {this.renderFoodChartList()}
                             </TabPanel>
                         </div>
                     </div>
                 </Tabs>
-
             </div>
         )
     }
@@ -119,3 +140,6 @@ const mapDispatchToProps = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MemberDetailsPage)
+
+
+
