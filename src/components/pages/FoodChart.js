@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
+
 import api from '../../api';
-import axios from 'axios'
+
 const TodoForm = ({ addTodo }) => {
     // Input Tracker
     let input;
@@ -22,7 +22,7 @@ const TodoForm = ({ addTodo }) => {
 
 const Todo = ({ todo, remove }) => {
     // Each Todo
-    return (<a href="#" className="list-group-item" onClick={() => { remove(todo._id) }}>{todo.name}</a>);
+    return (<a className="list-group-item" onClick={() => { remove(todo._id) }}>{todo.name}</a>);
 }
 
 const TodoList = ({ todos, remove }) => {
@@ -67,7 +67,8 @@ class FoodChart extends React.Component {
     handleRemove(id) {
         // Filter all todos except the one to be removed
         const remainder = this.state.data.filter((todo) => {
-            if (todo._id !== id) return todo;
+            if (todo._id !== id)
+                return todo;
         });
         // Update state with filter
         api.user.removeChart({ _id: id, phone: this.props.phone })

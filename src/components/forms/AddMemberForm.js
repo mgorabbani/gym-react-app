@@ -15,7 +15,7 @@ class AddMemberForm extends React.Component {
       package: "1",
       trainer: "1",
       joiningdate: "2018-2-2",
-      gender: "female"
+      gender: "male"
     },
     errors: {}
   };
@@ -134,17 +134,12 @@ class AddMemberForm extends React.Component {
             <div className="invalid-feedback">{errors.dob}</div>
           </div>
           <div className="form-check col-md-6">
-            <label htmlFor="dob">Gender</label><br />
-            <div className="form-check-inline" style={{ marginLeft: 20 }}>
-              <input className="form-check-input" type="radio" name="gender" id="dob1" value={data.gender}
-                onChange={this.onChange} checked default />
-              <label htmlFor="dob1">Male</label>
-              <div className="invalid-feedback">{errors.gender}</div>
-            </div>
-            <div className="form-check-inline" style={{ marginLeft: 20 }}>
-              <input className="form-check-input" type="radio" name="gender" id="dob2" value={data.gender} onChange={this.onChange} />
-              <label htmlFor="dob2">Female</label>
-            </div>
+            <label htmlFor="address">Gender</label>
+            <select name="gender" required className="form-control" onChange={this.onChange} value={data.gender}>
+              <option key={1} value='male'>Male</option>
+              <option key={2} value='female'>Female</option>
+              })}
+            </select>
             <div className="invalid-feedback">{errors.gender}</div>
           </div>
           <div className="form-check col-md-6">

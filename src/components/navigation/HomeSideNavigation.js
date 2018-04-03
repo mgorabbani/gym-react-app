@@ -1,27 +1,18 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import {
   Navbar,
   Nav,
-  NavbarBrand,
-  NavbarToggler,
-  Collapse,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
 } from "reactstrap";
-import { connect } from "react-redux";
+
 import { NavLink as RouterNavLink } from "react-router-dom";
 
 import { FormattedMessage } from "react-intl";
 class HomeSideNavigation extends React.Component {
 
   render() {
-    const { user, logout } = this.props;
-
     return (
       <Navbar dark expand="sm" color="faded">
 
@@ -71,7 +62,7 @@ class HomeSideNavigation extends React.Component {
               />
             </NavLink>
           </NavItem>
-          <NavItem>
+          {/* <NavItem>
             <NavLink
               tag={RouterNavLink}
               activeClassName="active"
@@ -82,7 +73,7 @@ class HomeSideNavigation extends React.Component {
                 defaultMessage="Report"
               />
             </NavLink>
-          </NavItem>
+          </NavItem> */}
         </Nav>
       </Navbar>
     );

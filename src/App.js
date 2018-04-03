@@ -19,20 +19,9 @@ import NewCharacterPage from "./components/pages/NewCharacterPage";
 import { fetchCurrentUser } from "./actions/users";
 import messages from "./messages";
 import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect
+  Route
 } from 'react-router-dom'
-import {
-  Navbar,
-  Nav,
-  NavbarBrand,
-  NavbarToggler,
-  Collapse,
-  NavItem,
-  NavLink,
-} from "reactstrap";
+
 class App extends React.Component {
   componentDidMount() {
     if (this.props.isAuthenticated) this.props.fetchCurrentUser();

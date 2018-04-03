@@ -16,6 +16,7 @@ import AddMemberPage from './AddMemberPage'
 import MemberListPage from './MemberListPage'
 import SettingPage from './SettingPage'
 import MainDashboardPage from './MainDashboardPage'
+import AttendancePage from './AttendancePage'
 class DashboardPage extends React.Component {
   render() {
     const { isConfirmed, location } = this.props;
@@ -32,6 +33,7 @@ class DashboardPage extends React.Component {
               <Route path="/dashboard/add-member" component={AddMemberPage} />
               <Route path="/dashboard/members" component={MemberListPage} />
               <Route path="/dashboard/setting" component={SettingPage} />
+              <Route path="/dashboard/attendance" component={AttendancePage} />
             </Switch>
           </div>
           <footer style={{ bottom: 0, margin: '20px auto' }}>

@@ -42,6 +42,8 @@ export default {
     addChart: (data) =>
       axi.post("/api/members/chart", { data }),
     removeChart: (data) =>
-      axi.delete("/api/members/chart", { data })
+      axi.delete("/api/members/chart", { data }),
+    attendance: (data) =>
+      axi.post("/api/members/attendance", { data }),
   }
 };
