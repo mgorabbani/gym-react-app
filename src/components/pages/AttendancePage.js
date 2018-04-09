@@ -44,11 +44,11 @@ class AttendancePage extends Component {
 
         var end = new Date();
         end.setHours(23, 59, 59, 999);
-        let datte;
+
         let today = d.filter(e => {
             console.log('filter', e)
-            datte = e.date || new Date();
-            if (dates.inRange(datte, start, end)) {
+
+            if (dates.inRange(e.date, start, end)) {
                 return e
             }
         })
