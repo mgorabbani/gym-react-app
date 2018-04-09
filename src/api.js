@@ -11,6 +11,7 @@ export default {
       axi.post("/api/members", { user }).then(res => res.data.user),
     fetchAllMembers: () =>
       axi.get("/api/members").then((res) => {
+        console.log('api level', res.data)
         return res.data
       }),
     fetchSearchResult: (value) =>

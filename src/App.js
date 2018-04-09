@@ -30,11 +30,14 @@ class App extends React.Component {
 
   render() {
     const { location, isAuthenticated, loaded, lang } = this.props;
+    console.log(isAuthenticated, 'fffff')
     return (
       <IntlProvider locale={lang} messages={messages[lang]}>
+
         <div>
+
           <Loader loaded={loaded}>
-            {isAuthenticated && <TopNavigation />}
+            <TopNavigation />
 
             <GuestRoute location={location} path="/" exact component={HomePage} />
             <Route
@@ -56,6 +59,7 @@ class App extends React.Component {
               component={SignupPage}
             />
             <GuestRoute
+
               location={location}
               path="/forgot_password"
               exact

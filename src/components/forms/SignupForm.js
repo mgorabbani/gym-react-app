@@ -113,6 +113,7 @@ class SignupForm extends React.Component {
         <small className="form-text text-center">
           or <Link to="/login">LOGIN</Link> if you have an account
         </small>
+        <small class="d-block mt-4 text-center">Forgot Password? Click <Link to="/reset_password">Reset</Link></small>
       </form>
     );
   }

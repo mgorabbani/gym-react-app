@@ -86,7 +86,7 @@ class FindMemberPage extends Component {
 
 function mapStateToProps(state) {
     const { members } = state
-    console.log("mmmm", members)
+    console.log("mmmm", state)
     return {
         members
     };

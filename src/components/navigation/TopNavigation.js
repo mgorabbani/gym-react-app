@@ -53,10 +53,12 @@ class TopNavigation extends React.Component {
               </NavLink>
             </NavItem>
 
+            {
+              user.username && <NavItem style={{ color: '#fff', marginTop: '8px' }}>
+                Howdy, {user.username}!
+              </NavItem>
+            }
 
-            <NavItem style={{ color: '#fff', marginTop: '8px' }}>
-              Howdy, {user.username}!
-            </NavItem>
           </Nav>
           <Nav navbar>
 

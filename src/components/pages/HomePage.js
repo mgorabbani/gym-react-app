@@ -16,11 +16,7 @@ const HomePage = () => (
       style={{ height: "100%" }}
     >
       <Col xs={12} sm={6}>
-        <img
-          className="img-fluid"
-          alt="Adventurers League Logo"
-          src="http://media.wizards.com/images/dnd/playevents/DnD_ADVL.png"
-        />
+        <img src={require('../../assets/gymfitness.png')} alt="" className="img-fluid" />
       </Col>
       <Col
         xs={12}
@@ -37,7 +33,7 @@ const HomePage = () => (
             lineHeight: "3rem"
           }}
         >
-          BECOME AN ADVENTURER!
+          GET YOUR GYM MANAGEMENT SYSTEM TODAY!
         </h1>
         <br />
         <div className="text-center">

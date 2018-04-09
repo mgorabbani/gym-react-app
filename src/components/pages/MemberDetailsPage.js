@@ -27,7 +27,7 @@ export class MemberDetailsPage extends Component {
     componentDidMount() {
         let that = this;
         this.props.fetchSingleMemberData(this.props.match.params.id).then(() => {
-            const m = this.props.members;
+            const m = this.props.member;
             console.clear()
             console.log("workout_items", m.workout_items)
             this.setState({
@@ -37,7 +37,7 @@ export class MemberDetailsPage extends Component {
         })
     }
     renderExcersizeList() {
-        let list = this.props.members.workout_items || [];
+        let list = this.props.member.workout_items || [];
         let day1 = list.filter(e => e.day == 1);
         let day2 = list.filter(e => e.day == 2);
         let day3 = list.filter(e => e.day == 3);
@@ -50,13 +50,13 @@ export class MemberDetailsPage extends Component {
 
         return alllist.map((e, k) => {
             return <div className="col-md-4">
-                <ExcercizeList day={k} data={e} phone={this.props.members.phone} />
+                <ExcercizeList day={k} data={e} phone={this.props.member.phone} />
             </div>
         })
 
     }
     renderFoodChartList() {
-        let list = this.props.members.food_chart || [];
+        let list = this.props.member.food_chart || [];
         let morning = list.filter(e => e.time == 'Morning');
         let noon = list.filter(e => e.time == 'Noon');
         let evening = list.filter(e => e.time == 'Evening');
@@ -64,21 +64,21 @@ export class MemberDetailsPage extends Component {
 
         return <div>
             <div className="col-md-4">
-                <FoodChart data={morning} time={'Morning'} phone={this.props.members.phone} />
+                <FoodChart data={morning} time={'Morning'} phone={this.props.member.phone} />
             </div>
             <div className="col-md-4">
-                <FoodChart data={noon} time={'Noon'} phone={this.props.members.phone} />
+                <FoodChart data={noon} time={'Noon'} phone={this.props.member.phone} />
             </div>
             <div className="col-md-4">
-                <FoodChart data={evening} time={'Evening'} phone={this.props.members.phone} />
+                <FoodChart data={evening} time={'Evening'} phone={this.props.member.phone} />
             </div>
             <div className="col-md-4">
-                <FoodChart data={night} time={'Night'} phone={this.props.members.phone} />
+                <FoodChart data={night} time={'Night'} phone={this.props.member.phone} />
             </div>
         </div>
     }
     render() {
-        const m = this.props.members;
+        const m = this.props.member;
         console.log("tra", this.state.trainer)
 
         return (
@@ -131,8 +131,9 @@ export class MemberDetailsPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state, "details")
-    return { members: state.members }
+    const { member } = state;
+
+    return { member }
 }
 
 const mapDispatchToProps = {

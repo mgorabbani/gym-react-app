@@ -10,18 +10,22 @@ class SignupPage extends React.Component {
 
   render() {
     return (
-      <div className="container" style={{ height: "100vh" }}>
-        <div className="row align-items-center" style={{ height: "100vh" }}>
-          <div className="col col-xs-12 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
-            <div className="card">
-              <h2 className="card-header">Join the Club!</h2>
-              <div className="card-body">
-                <SignupForm submit={this.submit} />
-              </div>
+      <div className="" style={{ height: "100vh", }}>
+        <div class="row no-gutters w-100">
+          <div class="col-xl-7 col-lg-6 col-md-5">
+            <img src={require('../../assets/background-hero-login.jpg')} alt="" className="img-responsive" />
+          </div>
+          <div class="col-xl-5 col-lg-6 col-md-7 d-flex align-items-center justify-content-center">
+            <div>
+              <h1 class="main-content__right--title mb-4">Good Morning</h1>
+              <p class="main-content__right--text lead">Welcome, please register to make your account.</p>
+              <SignupForm submit={this.submit} />
+
             </div>
           </div>
         </div>
       </div>
+
     );
   }
 }

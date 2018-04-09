@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from "react-redux";
 import moment from 'moment';
 import api from '../../api';
-
+import _ from 'lodash'
 import { fetchAllMembers, fetchSearchResult } from '../../actions/members'
 class AttendancePage extends Component {
     constructor(props) {
@@ -11,9 +11,12 @@ class AttendancePage extends Component {
             value: ""
         }
         this.onSearch = this.onSearch.bind(this);
+        this.onLoad = this.onLoad.bind(this)
     }
 
-    todaysDate(d) {
+    todaysDate(eer) {
+        console.log('todays date', d)
+        let d = eer || [{ date: new Date() }]
         const dates = {
             convert: function (d) {
                 return (
@@ -41,10 +44,11 @@ class AttendancePage extends Component {
 
         var end = new Date();
         end.setHours(23, 59, 59, 999);
-
+        let datte;
         let today = d.filter(e => {
             console.log('filter', e)
-            if (dates.inRange(e.date, start, end)) {
+            datte = e.date || new Date();
+            if (dates.inRange(datte, start, end)) {
                 return e
             }
         })
@@ -65,7 +69,8 @@ class AttendancePage extends Component {
     }
     onLoad() {
         const { members } = this.props;
-        let data = Object.values(members);
+        let data = _.values(members)
+        console.log('shit', data)
         let count = 0;
         const listItems = data.map((d) => {
             count++
@@ -107,6 +112,7 @@ class AttendancePage extends Component {
 
     }
     render() {
+        console.log('shit', this.props.members)
         return (
             <div className="row">
 
@@ -138,7 +144,8 @@ class AttendancePage extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.onLoad()}
+                        {console.log('counter', _.size(this.props.members))}
+                        {_.size(this.props.members) > 0 && this.onLoad()}
                     </tbody>
                 </table>
             </div>
