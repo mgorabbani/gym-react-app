@@ -4,16 +4,16 @@ Gym Management System is helps Gymnasium owner to manage their members more effi
 
 ### Screenshots
 
-![](https://github.com/mgorabbani/gym-react-app/assets/Picture1.png)
-![](https://github.com/mgorabbani/gym-react-app/assets/Picture2.png)
-![](https://github.com/mgorabbani/gym-react-app/assets/Picture3.png)
-![](https://github.com/mgorabbani/gym-react-app/assets/Picture4.png)
-![](https://github.com/mgorabbani/gym-react-app/assets/Picture5.png)
-![](https://github.com/mgorabbani/gym-react-app/assets/Picture6.png)
-![](https://github.com/mgorabbani/gym-react-app/assets/Picture7.png)
-![](https://github.com/mgorabbani/gym-react-app/assets/Picture8.png)
-![](https://github.com/mgorabbani/gym-react-app/assets/Picture9.png)
-![](https://github.com/mgorabbani/gym-react-app/assets/Picture10.png)
+![](https://github.com/mgorabbani/gym-react-app/blob/master/assets/Picture1.png)
+![](https://github.com/mgorabbani/gym-react-app/blob/master/assets/Picture2.png)
+![](https://github.com/mgorabbani/gym-react-app/blob/master/assets/Picture3.png)
+![](https://github.com/mgorabbani/gym-react-app/blob/master/assets/Picture4.png)
+![](https://github.com/mgorabbani/gym-react-app/blob/master/assets/Picture5.png)
+![](https://github.com/mgorabbani/gym-react-app/blob/master/assets/Picture6.png)
+![](https://github.com/mgorabbani/gym-react-app/blob/master/assets/Picture7.png)
+![](https://github.com/mgorabbani/gym-react-app/blob/master/assets/Picture8.png)
+![](https://github.com/mgorabbani/gym-react-app/blob/master/assets/Picture9.png)
+![](https://github.com/mgorabbani/gym-react-app/blob/master/assets/Picture10.png)
 
 ### References
 
