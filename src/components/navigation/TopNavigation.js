@@ -64,7 +64,7 @@ class TopNavigation extends React.Component {
 
             <UncontrolledDropdown nav>
               <DropdownToggle nav>
-                drop
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJOSURBVEhL5ZbbThNRFIYLT6LyBp5voZ3Sdk9bp50ppaaNF+iNVuMTNDGUUqC0RY4xAUkw0QujL4AXorcKBX0AOTyC0wN2u/9hwQxQhjIQbviSnTSdf/3T2Xutf+q6mrhZ5IY7EH0pBbVFFnm4jIXPHqa+wDWSOcfjU+4zJfFdGPJHT9L6+MQsX3z3wViF8kwz9Tit4xo0PUy9S2Xtk8lkOr0hLS/JWnO4MLG7tb3DT2Jza4fnRsu70ErBWA61ZGMPhP5w/HMolqpVNn6T3emsrf/iYS1Z9z2IfxI2HXtuNkiyOhyOpep2T3ESqMEP9MjaENm1RgpE72ELzvIkR/m5ts7h4fFHb5PtcXCoOBOqcczQaKkRUBIrZHuYbl9fFzoIh7vPX13nI8VJ/ipXsF3QQLsPPOAlBdXrZG+COUELk9agWqvxt0vv+ZuFJdsFDbRWUgPPdOH5nOxNvHJsAbNBunMzVppqSkybJ3sTpvR/wSBaqVarfGpunhdfz9ouaKC1Ai8WSSyTvcml3ejStg7NgOwincF5miE58FQ0g5ome5OLbO8/m9tGe/f29l0j+8MElP5vIiAbpHdMNl/EwH4l2+O4ZeUO4mO1skElZ+fHagVP88/LtFtk2xqJqTkEo5NQxbajViTCINnZ0oGoR+Qj+tsFYRpSk3XxivkIjz2rU8A7CVGPbcyOlBrWBjkKDn4wP94wXnyymhXl7d3ECqLer8RX0EHIrrHydBODiIU5QQvjGpK6R1ZuUplzkMIISAzgwZ8T8dn4rlVCXwFcrv/mJtP4PKP7MAAAAABJRU5ErkJggg==" />
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>

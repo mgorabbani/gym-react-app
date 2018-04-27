@@ -1,69 +1,21 @@
 # Gym Management Application
-database
 
-tenants
-    company_name
-    owner_name
-    email
-    phone_number
-    package_list
-    trainer_add
-members
-    name
-    phone
-    email
-    address
-    gender
-    extra note
-    package
-    trainer_assigned
-    associated_tenant
-    joining_date
-    workout_items[day_one:{1,2,3,8},day_two:{6,7,9,12,14}...]
-    food_chart:Text
-trainer
-    name
-    phone
-    email
-    address
-    associated_tenant:_id(tenants)
-    assigned_members: [_id(members), _id(members),_id(members)...]
+Gym Management System is helps Gymnasium owner to manage their members more efficiently and easily. This gives them opportunity to monitor their activites from a single dashboard without going through lots of files. Moreover, The attendance system helps to keep track of users gym activities. The trainer can be assigned to the member as well as food chart and workout routines.
 
-shared_table
-    workout_items [pushups,dumbell row, etc]
+### Screenshots
 
+![](https://github.com/mgorabbani/gym-react-app/assets/Picture1.png)
+![](https://github.com/mgorabbani/gym-react-app/assets/Picture2.png)
+![](https://github.com/mgorabbani/gym-react-app/assets/Picture3.png)
+![](https://github.com/mgorabbani/gym-react-app/assets/Picture4.png)
+![](https://github.com/mgorabbani/gym-react-app/assets/Picture5.png)
+![](https://github.com/mgorabbani/gym-react-app/assets/Picture6.png)
+![](https://github.com/mgorabbani/gym-react-app/assets/Picture7.png)
+![](https://github.com/mgorabbani/gym-react-app/assets/Picture8.png)
+![](https://github.com/mgorabbani/gym-react-app/assets/Picture9.png)
+![](https://github.com/mgorabbani/gym-react-app/assets/Picture10.png)
 
-attendace
-    entry_time
-    exit_time
-=== === === === === === === === === === === === === === === === === === === === === === === === ===
+### References
 
-
-workout_items: [
-    {
-        _id:234567890,
-        day:1
-        name:'pull-ups'
-        link:'https://youtube.com/sdfsdf'
-    },
-    {
-        _id:234567890,
-        day:2
-        name:'pull-ups'
-        link:'https://youtube.com/sdfsdf'
-    },
-    {
-        _id:234567890,
-        day:3
-        name:'pull-ups'
-        link:'https://youtube.com/sdfsdf'
-    },
-    {
-        _id:234567890,
-        day:0
-        name:'pull-ups'
-        link:'https://youtube.com/sdfsdf'
-    },
-]
-
-filter(where(day==1))
++ [React - A JavaScript library for building user interfaces](https://reactjs.org/)
++ [Rem Zolotykh](https://www.youtube.com/user/MrRemchi)

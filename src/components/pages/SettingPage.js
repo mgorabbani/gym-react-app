@@ -57,7 +57,7 @@ class SettingPage extends Component {
             console.log(e, 'package')
             return <li key={key}>{e.package_name}
                 <span style={{ fontSize: '1.25em', paddingLeft: '5px', fontWeight: 'bold', color: '#3F51B5' }}>
-                    {e.pacakge_month} <small>Month</small>
+                    {e.package_month} <small>Month</small>
                 </span>
                 <a href="#" onClick={() => this.deletePackage(e._id)} className="badge badge-danger " >Delete</a>
             </li>
